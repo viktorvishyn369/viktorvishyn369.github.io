@@ -41,6 +41,26 @@
   a.solana { background: linear-gradient(135deg, #9945FF, #14F195); color: #04040a; }
   a.store { background: rgba(255,255,255,0.08); color: #EEEEF6; border: 1px solid rgba(255,255,255,0.14); }
   .note { color: #5C5C72; font-size: 12px; margin-top: 20px; line-height: 1.5; }
+  .selfhost {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: left;
+  }
+  .selfhost-title { font-size: 13px; font-weight: 700; color: #EEEEF6; margin-bottom: 8px; }
+  .selfhost p { color: #8B8BA0; font-size: 12px; line-height: 1.5; margin-bottom: 10px; }
+  .selfhost code {
+    display: block;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: #14F195;
+    word-break: break-all;
+    margin-bottom: 10px;
+  }
+  .selfhost a { color: #818CF8; font-size: 12px; font-weight: 600; text-decoration: none; }
 </style>
 </head>
 <body>
@@ -51,6 +71,12 @@
     <a class="btn store" href="https://play.google.com/store/apps/details?id=com.photosync.app">Get it on Google Play</a>
     <a class="btn store" href="https://apps.apple.com/app/photolynk/id6748285696">Download on the App Store</a>
     <p class="note">On a Solana phone this page opens the dApp Store automatically.<br>Everyone else lands on Google Play.</p>
+    <div class="selfhost">
+      <div class="selfhost-title">Self-hosted Remote Server</div>
+      <p>Run PhotoLynk's open-source backup server on your own VPS — your domain, your files, HTTPS included. One line on Ubuntu/Debian:</p>
+      <code>curl -fsSL https://raw.githubusercontent.com/viktorvishyn369/Server-Public/main/install.sh | sudo bash</code>
+      <a href="https://github.com/viktorvishyn369/Server-Public" target="_blank" rel="noopener">Source &amp; setup guide →</a>
+    </div>
   </div>
 <script>
   (function () {
