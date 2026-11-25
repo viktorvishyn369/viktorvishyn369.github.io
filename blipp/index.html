@@ -134,10 +134,20 @@
     </div>
 
     <script>
-    // Version pill: reads the signed blipp section mirror when present.
+    // Version pill: live signed remote-config first (auto-updates on every
+    // store release via the server watcher), local Pages mirror as fallback.
     // blipp-remote-config.json is {payload, signature} on both hosts —
     // payload is a JSON string that needs parsing.
-    fetch('../blipp-remote-config.json')
+    function fetchConfig(urls) {
+        return urls.reduce(
+            (p, u) => p.catch(() => fetch(u).then(r => r.ok ? r.json() : Promise.reject())),
+            Promise.reject(),
+        );
+    }
+    fetchConfig([
+        'https://stealthlynk.io/blipp-remote-config.json',
+        '../blipp-remote-config.json',
+    ])
         .then(r => r.ok ? r.json() : Promise.reject())
         .then(cfg => {
             const p = typeof cfg.payload === 'string' ? JSON.parse(cfg.payload) : (cfg.payload || cfg);
