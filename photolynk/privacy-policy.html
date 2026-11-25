@@ -1,42 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Privacy Policy - PhotoLynk</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoLynk — Privacy Policy</title>
     <style>
-      :root { color-scheme: light; }
-      body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; background: #0b0b0c; color: #f2f2f2; }
-      .wrap { max-width: 860px; margin: 0 auto; padding: 48px 18px; }
-      .card { background: #141416; border: 1px solid #242428; border-radius: 14px; padding: 22px; }
-      h1 { margin: 0 0 6px 0; font-size: 26px; }
-      .meta { color: #9a9aa4; font-size: 13px; margin-bottom: 18px; }
-      h2 { margin-top: 22px; font-size: 18px; }
-      h3 { margin-top: 16px; font-size: 15px; color: #e0e0e0; }
-      p, li { color: #cfcfd6; line-height: 1.7; }
-      a { color: #a78bfa; text-decoration: none; font-weight: 650; }
-      a:hover { text-decoration: underline; }
-      code { background: #0f0f12; padding: 2px 6px; border-radius: 6px; }
-      .topnav { margin-bottom: 14px; }
-      .warning { background: #2a1a1a; border: 1px solid #4a2a2a; border-radius: 8px; padding: 14px; margin: 16px 0; }
-      .warning p { color: #ff9999; margin: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 60px 24px;
+        }
+        .container { max-width: 720px; margin: 0 auto; }
+        h1 { color: #C9A84C; font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+        .subtitle { color: #888; font-size: 0.9rem; margin-bottom: 40px; }
+        h2 { color: #fff; font-size: 1.2rem; font-weight: 700; margin-top: 32px; margin-bottom: 12px; }
+        h3 { color: #ccc; font-size: 1.05rem; font-weight: 600; margin-top: 20px; margin-bottom: 10px; }
+        p { color: #bbb; margin-bottom: 14px; font-size: 0.95rem; }
+        ul { color: #bbb; margin-bottom: 14px; padding-left: 24px; }
+        li { margin-bottom: 8px; font-size: 0.95rem; }
+        a { color: #C9A84C; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .updated { color: #666; font-size: 0.82rem; margin-top: 40px; border-top: 1px solid #2a2a2a; padding-top: 16px; }
+        strong { color: #fff; font-weight: 600; }
+        .banner {
+            background: rgba(201,168,76,0.08);
+            border: 1px solid rgba(201,168,76,0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
     </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <div class="topnav"><a href="index.html">← Back</a></div>
-      <div class="card">
-        <h1>Privacy Policy</h1>
-        <div class="meta">Last Updated: November 11, 2026</div>
+</head>
+<body>
+    <div class="container">
+        <h1>PhotoLynk</h1>
+        <p class="subtitle">Privacy Policy</p>
+        <p class="updated" style="border: none; padding: 0; margin-bottom: 24px;">Last Updated: November 14, 2026</p>
 
         <p><strong>StealthLynk LLC</strong> ("Company," "we," "us," or "our") operates the PhotoLynk application (the "Service"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Service.</p>
 
         <h2>1. Service Overview</h2>
         <p>PhotoLynk is a photo and video backup application that operates in three distinct modes:</p>
         <ul>
-          <li><strong>Local Mode</strong>: Your data is stored on a server you own and operate on your local network.</li>
-          <li><strong>Remote Mode</strong>: Your data is stored on a server you own and operate, accessible over the internet.</li>
-          <li><strong>StealthCloud Mode</strong>: Your data is encrypted on your device before upload and stored on StealthLynk-operated infrastructure.</li>
+            <li><strong>Local Mode</strong>: Your data is stored on a server you own and operate on your local network.</li>
+            <li><strong>Remote Mode</strong>: Your data is stored on a server you own and operate, accessible over the internet.</li>
+            <li><strong>StealthCloud Mode</strong>: Your data is encrypted on your device before upload and stored on StealthLynk-operated infrastructure.</li>
         </ul>
 
         <h2>2. Information We Collect</h2>
@@ -47,43 +61,45 @@
         <h3>2.2 StealthCloud Mode</h3>
         <p>When using StealthCloud mode, we collect and process:</p>
         <ul>
-          <li><strong>Account Information</strong>: Email address for authentication purposes</li>
-          <li><strong>Device Identifiers</strong>: Hardware device identifiers for security and account recovery</li>
-          <li><strong>Encrypted Data</strong>: Photos and videos encrypted on your device before transmission</li>
-          <li><strong>Subscription Information</strong>: Payment and subscription status (processed by third-party payment processors)</li>
+            <li><strong>Account Information</strong>: Email address for authentication purposes (if you register with email), or a wallet-derived internal address (if you sign in with a Solana wallet)</li>
+            <li><strong>Password</strong>: Stored only as a bcrypt hash — we never store or can read your plaintext password. Password reset codes are sent to your email address and expire after 15 minutes</li>
+            <li><strong>Device Identifiers</strong>: Hardware device identifiers for security, session binding, and account recovery</li>
+            <li><strong>Encrypted Data</strong>: Photos and videos encrypted on your device before transmission</li>
+            <li><strong>Subscription Information</strong>: Payment and subscription status (processed by third-party payment processors)</li>
+            <li><strong>Public Wallet Address</strong>: Your Solana wallet address, used to verify on-chain payments and link your account across StealthLynk apps. It is a public key — we never see or store private keys or seed phrases</li>
         </ul>
         <p><strong>Important</strong>: All media files and metadata are encrypted on your device using industry-standard encryption (XSalsa20-Poly1305) before transmission. StealthLynk LLC stores only encrypted data and <strong>does not possess the decryption keys</strong>. We cannot access, view, or decrypt your files.</p>
 
         <h3>2.3 In-App Purchase Information</h3>
         <p>When you make in-app purchases, we collect and process:</p>
         <ul>
-          <li><strong>On-Chain Payment Records</strong>: The Solana transaction signature, paying wallet address, amount, and plan purchased — used to verify your payment on-chain</li>
-          <li><strong>Account Balance</strong>: Credit balance and transaction history for photo certification services</li>
-          <li><strong>Premium Status</strong>: Whether you have purchased the Premium tier ($49.99 USD one-time) and associated feature entitlements (1TB encrypted cloud storage for 1 year, 100 completely free certifications)</li>
-          <li><strong>Verification Credit</strong>: Photo Verification Credit purchases ($15.00 USD consumable) that add to your account balance for photo certification services</li>
-          <li><strong>Platform Information</strong>: The app (PhotoLynk or another StealthLynk app) where the purchase was made</li>
+            <li><strong>On-Chain Payment Records</strong>: The Solana transaction signature, paying wallet address, amount, and plan purchased — used to verify your payment on-chain</li>
+            <li><strong>Account Balance</strong>: Credit balance and transaction history for photo certification services</li>
+            <li><strong>Premium Status</strong>: Whether you have purchased the Premium tier ($49.99 USD one-time) and associated feature entitlements (1TB encrypted cloud storage for 1 year, 100 completely free certifications)</li>
+            <li><strong>Verification Credit</strong>: Photo Verification Credit purchases ($15.00 USD consumable) that add to your account balance for photo certification services</li>
+            <li><strong>Platform Information</strong>: The app (PhotoLynk or another StealthLynk app) where the purchase was made</li>
         </ul>
         <p>Payments are made from your own Solana wallet and verified against public on-chain transaction data. We do not store or process payment card information.</p>
         <p>Transaction records, including purchase amounts, dates, and certification service usage, are retained for accounting, tax compliance, and customer support purposes.</p>
 
         <h2>3. Permissions</h2>
         <ul>
-          <li><strong>Camera</strong>: Used only to scan QR codes for server pairing / local setup.</li>
-          <li><strong>Photos/Videos</strong>: Used to back up your media, restore it, and scan for duplicates.</li>
-          <li><strong>Network</strong>: Used to connect to your local server, remote server, or StealthCloud.</li>
+            <li><strong>Camera</strong>: Used only to scan QR codes for server pairing / local setup.</li>
+            <li><strong>Photos/Videos</strong>: Used to back up your media, restore it, and scan for duplicates.</li>
+            <li><strong>Network</strong>: Used to connect to your local server, remote server, or StealthCloud.</li>
         </ul>
 
         <h2>4. Data Encryption and Security</h2>
         <p>StealthCloud implements end-to-end encryption:</p>
         <ul>
-          <li>Files are encrypted on your device before upload using TweetNaCl secretbox (XSalsa20-Poly1305)</li>
-          <li>Each file is split into encrypted chunks</li>
-          <li>Encryption keys are derived from your credentials and stored only on your device</li>
-          <li>StealthLynk LLC cannot decrypt your data</li>
+            <li>Files are encrypted on your device before upload using TweetNaCl secretbox (XSalsa20-Poly1305)</li>
+            <li>Each file is split into encrypted chunks</li>
+            <li>Encryption keys are derived from your credentials and stored only on your device</li>
+            <li>StealthLynk LLC cannot decrypt your data</li>
         </ul>
         <p><strong>However</strong>, no method of transmission over the Internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
 
-        <h2>4.1 Data Integrity</h2>
+        <h3>4.1 Data Integrity</h3>
         <p>PhotoLynk does not modify, alter, or change any metadata (EXIF data, creation date, location information, camera settings, etc.) of your photos or videos. Your files are stored exactly as they exist on your device, preserving all original properties and metadata intact.</p>
 
         <h2>5. Third-Party Services</h2>
@@ -103,15 +119,13 @@
         <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
 
         <h2>10. Contact</h2>
-        <p>For questions about this Privacy Policy, contact:</p>
-        <p><strong>StealthLynk LLC</strong> · <a href="https://stealthlynk.io">stealthlynk.io</a><br>
-        Email: <a href="mailto:support@stealthlynk.io">support@stealthlynk.io</a></p>
+        <p>StealthLynk LLC · <a href="https://stealthlynk.io">stealthlynk.io</a> · <a href="mailto:support@stealthlynk.io">support@stealthlynk.io</a></p>
 
         <h2>11. Disclaimer and Limitation of Liability</h2>
-        <div class="warning">
-          <p><strong>PLEASE READ THIS SECTION CAREFULLY. IT LIMITS OUR LIABILITY AND AFFECTS YOUR LEGAL RIGHTS.</strong></p>
+        <div class="banner">
+            <strong>PLEASE READ THIS SECTION CAREFULLY. IT LIMITS OUR LIABILITY AND AFFECTS YOUR LEGAL RIGHTS.</strong>
         </div>
-        
+
         <h3>11.1 No Warranty</h3>
         <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
 
@@ -130,9 +144,11 @@
         <h3>11.6 Maximum Liability</h3>
         <p>IN ANY EVENT, STEALTHLYNK'S TOTAL CUMULATIVE LIABILITY SHALL NOT EXCEED THE GREATER OF: (A) THE AMOUNTS YOU HAVE PAID TO STEALTHLYNK IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED US DOLLARS ($100.00).</p>
 
-        <hr style="border: none; border-top: 1px solid #333; margin: 30px 0;">
-        <p style="font-size: 13px; color: #888;"><strong>Summary</strong>: For Local/Remote modes, your data stays on your server—we have no access. For StealthCloud, we store only encrypted data we cannot decrypt. We are not liable for data loss in any mode. Use at your own risk and maintain your own backups.</p>
-      </div>
+        <div class="banner">
+            <strong>Summary:</strong> For Local/Remote modes, your data stays on your server—we have no access. For StealthCloud, we store only encrypted data we cannot decrypt. We are not liable for data loss in any mode. Use at your own risk and maintain your own backups.
+        </div>
+
+        <p class="updated">Last Updated: November 14, 2026</p>
     </div>
-  </body>
+</body>
 </html>
