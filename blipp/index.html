@@ -1,76 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blipp — Solana dApp Store</title>
-<meta name="description" content="Get Blipp, the private on-device voice AI, on the Solana dApp Store.">
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #0b0e14;
-    color: #e8ecf4;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: 24px;
-  }
-  .card { max-width: 420px; width: 100%; text-align: center; }
-  .dot {
-    width: 64px; height: 64px; margin: 0 auto 20px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #7aa2ff, #4f6ef7 60%, #2c3f9e);
-    box-shadow: 0 0 40px rgba(79, 110, 247, .45);
-  }
-  h1 { font-size: 28px; letter-spacing: .5px; margin-bottom: 8px; }
-  p.sub { color: #9aa5bd; font-size: 15px; line-height: 1.5; margin-bottom: 28px; }
-  a.btn {
-    display: block;
-    padding: 16px 20px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #4f6ef7, #7aa2ff);
-    color: #fff;
-    font-size: 17px;
-    font-weight: 600;
-    text-decoration: none;
-    margin-bottom: 12px;
-  }
-  a.btn:active { opacity: .85; }
-  .alt { font-size: 13px; color: #9aa5bd; margin-top: 20px; line-height: 1.6; }
-  .alt a { color: #7aa2ff; }
-  .hidden { display: none; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blipp - Private On-Device Voice AI for Solana</title>
+    <style>
+        :root {
+            --bg: #0a0a0b; --bg-card: #141416; --bg-card-hover: #1a1a1d;
+            --border: #242428; --border-hover: #3a3a40;
+            --text: #f2f2f5; --text-dim: #a0a0aa; --text-muted: #666670;
+            --accent: #a78bfa; --accent-dim: rgba(167,139,250,0.12);
+            --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; min-height: 100vh; }
+        .container { max-width: 880px; margin: 0 auto; padding: 56px 20px 40px; }
+
+        .hero { text-align: center; margin-bottom: 56px; }
+        .hero-logo { font-size: 2.6rem; font-weight: 750; letter-spacing: -0.03em; margin-bottom: 8px; }
+        .hero-logo span { background: linear-gradient(135deg, #a78bfa, #60a5fa); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+        .hero-sub { font-size: 1.05rem; color: var(--text-dim); max-width: 560px; margin: 0 auto; }
+        .version-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--green-dim); border: 1px solid rgba(34,197,94,0.25); color: var(--green); padding: 4px 14px; border-radius: 999px; font-size: 0.78rem; font-weight: 550; margin-top: 18px; }
+        .version-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+        .section { margin-bottom: 48px; }
+        .section-title { font-size: 1.1rem; font-weight: 650; margin-bottom: 16px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 8px; }
+        .section-title svg { width: 20px; height: 20px; fill: var(--text-dim); flex-shrink: 0; }
+
+        .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        @media (max-width: 720px) { .feat-grid { grid-template-columns: 1fr; } }
+        .feat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+        .feat-card h3 { font-size: 0.92rem; font-weight: 650; margin-bottom: 6px; color: var(--text); }
+        .feat-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.55; }
+        .feat-tag { display: inline-block; font-size: 0.66rem; font-weight: 650; padding: 2px 8px; border-radius: 4px; background: var(--accent-dim); color: var(--accent); margin-bottom: 8px; letter-spacing: 0.03em; text-transform: uppercase; }
+
+        .mobile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        @media (max-width: 720px) { .mobile-grid { grid-template-columns: 1fr; } }
+        .mobile-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+            padding: 20px 24px; display: flex; align-items: center; gap: 14px;
+            text-decoration: none; color: inherit; transition: border-color 0.2s, background 0.2s;
+        }
+        .mobile-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+        .mobile-card.coming { opacity: 0.4; pointer-events: none; }
+        .mobile-card.coming:hover { border-color: var(--border); background: var(--bg-card); }
+        .dl-icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border-radius: 10px; overflow: hidden; }
+        .dl-icon img { width: 48px; height: 48px; border-radius: 10px; }
+        .dl-info { flex: 1; min-width: 0; }
+        .dl-title { font-size: 0.92rem; font-weight: 600; }
+        .dl-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+        .dl-badge { font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.06); color: var(--text-dim); flex-shrink: 0; }
+        .dl-badge.soon { background: var(--accent-dim); color: var(--accent); }
+
+        .note { margin-top: 14px; font-size: 0.82rem; color: var(--text-muted); }
+        .note a { color: var(--accent); }
+
+        .legal-links { display: flex; flex-wrap: wrap; gap: 10px; }
+        .legal-link { display: inline-block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; font-size: 0.85rem; font-weight: 550; color: var(--text-dim); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+        .legal-link:hover { border-color: var(--border-hover); color: var(--text); }
+
+        footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+        .footer-text { color: var(--text-muted); font-size: 0.78rem; }
+        .footer-text a { color: var(--text-dim); text-decoration: none; }
+        .footer-text a:hover { color: var(--text); }
+    </style>
 </head>
 <body>
-  <div class="card">
-    <div class="dot"></div>
-    <h1>Blipp</h1>
-    <p class="sub">Your private, on-device voice AI for Solana&nbsp;Seeker.</p>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-logo"><span>Blipp</span></div>
+            <p class="hero-sub">Private, on-device voice AI for Solana Seeker — wake word, offline conversations, BYOK or Blipp One. Your voice never leaves your phone.</p>
+            <div class="version-pill"><span class="version-dot"></span><span id="version-text">Latest</span></div>
+        </div>
 
-    <a class="btn" id="storeBtn" href="solanadappstore://details?id=ai.blipp.solana">
-      Open in Solana dApp Store
-    </a>
+        <div class="section">
+            <h2 class="section-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2H22l-6 4.8 2.4 7.2L12 16.4l-6.4 4.8L8 14 2 9.2h7.6z"/></svg>
+                Features
+            </h2>
+            <div class="feat-grid">
+                <div class="feat-card">
+                    <span class="feat-tag">Local</span>
+                    <h3>On-Device Voice</h3>
+                    <p>Wake word, speech recognition, reasoning and voice synthesis all run locally — no cloud round-trip for everyday talk.</p>
+                </div>
+                <div class="feat-card">
+                    <span class="feat-tag">Private</span>
+                    <h3>Offline Companion</h3>
+                    <p>Once set up, Blipp works fully offline: conversations, memory, settings and voice stay on your device.</p>
+                </div>
+                <div class="feat-card">
+                    <span class="feat-tag">Cloud</span>
+                    <h3>BYOK &amp; Blipp One</h3>
+                    <p>Bring your own API keys for extra models, or subscribe to Blipp One for managed cloud intelligence.</p>
+                </div>
+            </div>
+        </div>
 
-    <p class="alt" id="fallback">
-      On a Solana Seeker, the button above opens the store listing automatically.<br>
-      Other Android? <a href="https://play.google.com/store/apps/details?id=ai.blipp">Get Blipp on Google Play</a>
-    </p>
-  </div>
+        <div class="section">
+            <h2 class="section-title">
+                <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+                Get the App
+            </h2>
+            <div class="mobile-grid">
+                <a class="mobile-card" href="solanadappstore://details?id=ai.blipp.solana" title="Get it on the Solana dApp Store">
+                    <div class="dl-icon"><img src="../images/logo_blipp.png" alt="Blipp"></div>
+                    <div class="dl-info">
+                        <div class="dl-title">Solana Mobile (dApp Store)</div>
+                        <div class="dl-meta">Seeker &amp; Solana devices</div>
+                    </div>
+                    <span class="dl-badge">Get</span>
+                </a>
+            </div>
+            <p class="note">Blipp is currently available on the Solana Mobile dApp Store.</p>
+        </div>
 
-<script>
-  // Hand off to the Solana dApp Store when the scheme resolves (Seeker).
-  // Browsers keep the page visible when no handler exists, so the fallback
-  // text below stays useful on desktop / non-Seeker devices.
-  window.addEventListener('load', function () {
-    var t = setTimeout(function () {
-      window.location.href = 'solanadappstore://details?id=ai.blipp.solana';
-    }, 350);
-    document.getElementById('storeBtn').addEventListener('click', function () {
-      clearTimeout(t);
-    });
-  });
-</script>
+        <div class="section">
+            <h2 class="section-title">Legal</h2>
+            <div class="legal-links">
+                <a class="legal-link" href="privacy.html">Privacy Policy</a>
+                <a class="legal-link" href="terms.html">Terms of Service</a>
+                <a class="legal-link" href="licenses.html">Licenses</a>
+                <a class="legal-link" href="delete-account.html">Delete Account</a>
+            </div>
+        </div>
+
+        <footer>
+            <p class="footer-text">
+                <strong>StealthLynk LLC</strong> · <a href="https://stealthlynk.io">stealthlynk.io</a> — Building secure, privacy-respecting infrastructure.<br>
+                <a href="https://github.com/viktorvishyn369" target="_blank" rel="noopener">GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+    // Version pill: reads the signed blipp section mirror when present.
+    // blipp-remote-config.json is {payload, signature} on both hosts —
+    // payload is a JSON string that needs parsing.
+    fetch('../blipp-remote-config.json')
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(cfg => {
+            const p = typeof cfg.payload === 'string' ? JSON.parse(cfg.payload) : (cfg.payload || cfg);
+            const vn = p && p.latestVersionName;
+            const vc = p && p.latestVersionCode;
+            if (vn || vc) {
+                document.getElementById('version-text').textContent =
+                    'v' + (vn || vc) + ' — Latest';
+            }
+        })
+        .catch(() => {});
+    </script>
 </body>
 </html>

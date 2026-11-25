@@ -34,20 +34,23 @@
         .feat-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.55; }
         .feat-tag { display: inline-block; font-size: 0.66rem; font-weight: 650; padding: 2px 8px; border-radius: 4px; background: var(--accent-dim); color: var(--accent); margin-bottom: 8px; letter-spacing: 0.03em; text-transform: uppercase; }
 
-        .mobile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        @media (max-width: 640px) { .mobile-grid { grid-template-columns: 1fr; } }
+        .mobile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        @media (max-width: 720px) { .mobile-grid { grid-template-columns: 1fr; } }
         .mobile-card {
             background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
             padding: 20px 24px; display: flex; align-items: center; gap: 14px;
             text-decoration: none; color: inherit; transition: border-color 0.2s, background 0.2s;
         }
         .mobile-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+        .mobile-card.coming { opacity: 0.4; pointer-events: none; }
+        .mobile-card.coming:hover { border-color: var(--border); background: var(--bg-card); }
         .dl-icon { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border-radius: 10px; overflow: hidden; }
         .dl-icon img { width: 48px; height: 48px; border-radius: 10px; }
         .dl-info { flex: 1; min-width: 0; }
         .dl-title { font-size: 0.92rem; font-weight: 600; }
         .dl-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
         .dl-badge { font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.06); color: var(--text-dim); flex-shrink: 0; }
+        .dl-badge.soon { background: var(--accent-dim); color: var(--accent); }
 
         .note { margin-top: 14px; font-size: 0.82rem; color: var(--text-muted); }
         .note a { color: var(--accent); }
@@ -108,6 +111,14 @@
                     </div>
                     <span class="dl-badge">Get</span>
                 </a>
+                <div class="mobile-card coming">
+                    <div class="dl-icon"><img src="images/logo_paceseeker.png" alt="PaceSeeker"></div>
+                    <div class="dl-info">
+                        <div class="dl-title">iPhone &amp; iPad (iOS)</div>
+                        <div class="dl-meta">In development</div>
+                    </div>
+                    <span class="dl-badge soon">Soon</span>
+                </div>
                 <a class="mobile-card" href="solanadappstore://details?id=com.stealthlynk.paceseeker" title="Get it on the Solana dApp Store">
                     <div class="dl-icon"><img src="images/logo_paceseeker.png" alt="PaceSeeker"></div>
                     <div class="dl-info">
